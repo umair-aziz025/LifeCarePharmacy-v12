@@ -1,0 +1,86 @@
+Windows Registry Editor Version 5.00
+
+; LifeCare Pharmacy 12 - License Bypass
+; AbuzarSoftWare PowerBuilder Application
+; 
+; This registry file creates fake license entries similar to IDM bypass method
+; The original app stores license in SQL database ClientInstance table,
+; but we can inject registry-based activation for our standalone version
+
+; Create main software entry
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12]
+"Installed"="1"
+"Version"="12.0"
+"InstallDate"="2024-01-15"
+"InstallPath"="C:\\AbuzarSoftWare\\Application\\"
+"DatabasePath"="localhost"
+"DatabaseName"="LifeCarePharmacy12"
+
+; License activation entries
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\License]
+"ClientName"="LIFECARE12"
+"ClientID"=dword:00000001
+"ClientInstanceID"=dword:00000001
+"RegisteredTo"="AL-LATIF MEDICAL STORE"
+"RegistrationStatus"="Activated"
+"LicenseKey"="LIFECARE12-FULL-2024-UNLIMITED"
+"SerialNumber"="LC12-ABCD-EFG H-IJKL-MNOP-QRST"
+"ActivationDate"="2024-01-15"
+"ExpiryDate"="2099-12-31"
+"MaxUsers"=dword:00000064
+"IsUnlimited"=dword:00000001
+"IsRegistered"=dword:00000001
+"TrialDaysRemaining"=dword:ffffffff
+
+; User configuration
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\Config]
+"DefaultUser"="ADMIN"
+"DefaultPassword"="786"
+"AutoLogin"=dword:00000001
+"SkipLicenseCheck"=dword:00000001
+"BypassActivation"=dword:00000001
+
+; Database bypass (for standalone SQLite version)
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\Database]
+"UseLocalDatabase"=dword:00000001
+"LocalDatabasePath"="pharmacy_local.db"
+"SkipServerConnection"=dword:00000001
+
+; User-specific keys
+[HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare]
+
+[HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12]
+"FirstRun"=dword:00000000
+"LicenseAccepted"=dword:00000001
+"SkipWelcome"=dword:00000001
+
+[HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\License]
+"Activated"=dword:00000001
+"Status"="Registered"
+"ClientInstance"="YLIFECARE12AARegistered"
+
+; Binary activation data (similar to IDM's scansk)
+; This is encrypted registration data - random hex values
+[HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\Activation]
+"ActivationData"=hex:4c,49,46,45,43,41,52,45,31,32,00,00,41,42,55,5a,41,52,\
+  53,4f,46,54,57,41,52,45,00,00,52,45,47,49,53,54,45,52,45,44,00,00,32,30,\
+  32,34,2d,30,31,2d,31,35,00,00,32,30,39,39,2d,31,32,2d,33,31,00,00,55,4e,\
+  4c,49,4d,49,54,45,44,00,00,46,55,4c,4c,00,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare\LifeCarePharmacy12\Activation]
+"ActivationData"=hex:4c,49,46,45,43,41,52,45,31,32,00,00,41,42,55,5a,41,52,\
+  53,4f,46,54,57,41,52,45,00,00,52,45,47,49,53,54,45,52,45,44,00,00,32,30,\
+  32,34,2d,30,31,2d,31,35,00,00,32,30,39,39,2d,31,32,2d,33,31,00,00,55,4e,\
+  4c,49,4d,49,54,45,44,00,00,46,55,4c,4c,00,00,00,00,00,00
+
+; Wow6432Node for 32-bit app on 64-bit Windows
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\AbuzarSoftWare\LifeCarePharmacy12]
+"Installed"="1"
+"Version"="12.0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\AbuzarSoftWare\LifeCarePharmacy12\License]
+"RegistrationStatus"="Activated"
+"IsRegistered"=dword:00000001
+"ClientInstance"="YLIFECARE12AARegistered"

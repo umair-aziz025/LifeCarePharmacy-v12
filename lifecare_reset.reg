@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; LifeCare Pharmacy 12 - License Reset
+; Removes all license and activation entries
+; Use this to start fresh or before applying new license
+
+; Remove main registry entries
+[-HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\AbuzarSoftWare]
+[-HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare]
+
+; Recreate base keys (empty)
+[HKEY_LOCAL_MACHINE\SOFTWARE\AbuzarSoftWare]
+[HKEY_CURRENT_USER\SOFTWARE\AbuzarSoftWare]

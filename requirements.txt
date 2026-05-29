@@ -1,0 +1,9 @@
+# LifeCarePharmacy12 Bypass Tools Requirements
+
+# For PHARMACY_LOCAL.py (SQLite version - RECOMMENDED)
+# No additional packages needed! SQLite is built into Python.
+# Just run: py -3 PHARMACY_LOCAL.py
+
+# For original SQL Server tools (LICENSE_BYPASS.py, PHARMACY_FREE.py)
+pyodbc>=4.0.0
+tabulate>=0.8.0
